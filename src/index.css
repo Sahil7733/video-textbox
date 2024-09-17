@@ -1,0 +1,154 @@
+/* Main container for video and config panel */
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+/* Video section styling */
+.video-section {
+  position: relative;
+  width: 70%; /* Take 70% of width on larger screens */
+}
+
+.video-player {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text box to overlay on video */
+.text-box {
+  position: absolute;
+  background: transparent;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Config panel styling */
+.config-panel {
+  width: 25%; /* Sidebar occupies 25% of container width */
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  gap: 20px; /* Add space between each section */
+}
+
+.config-panel button.add-text-btn {
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.config-section {
+  margin-bottom: 20px;
+}
+
+h4 {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"],
+select,
+input[type="color"] {
+  width: 100%; /* Make inputs full width */
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.position-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.position-inputs div {
+  display: flex;
+  flex-direction: column; /* Align label and input vertically */
+  width: 48%;
+}
+
+input[type="range"] {
+  width: 100%; /* Full width for sliders */
+}
+
+/* Range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 6px;
+  background: #ddd;
+  outline: none;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* Media Queries for smaller screens (phones) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack video and config panel vertically */
+    align-items: center; /* Center them horizontally */
+  }
+
+  .video-section,
+  .config-panel {
+    width: 100%; /* Full width on small screens */
+  }
+
+  .video-player {
+    height: auto;
+  }
+
+  .config-panel {
+    margin-top: 20px; /* Add margin between video and config panel */
+    padding: 10px;
+  }
+
+  .position-inputs div {
+    width: 100%; /* Make position inputs stack vertically */
+  }
+}
+
+/* Media Queries for very small screens (phones under 480px wide) */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .config-panel {
+    padding: 5px;
+  }
+
+  input[type="number"],
+  select,
+  input[type="color"] {
+    padding: 3px; /* Reduce padding for smaller inputs */
+  }
+
+  button.add-text-btn {
+    padding: 8px;
+  }
+}
